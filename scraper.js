@@ -146,14 +146,14 @@ async function cleanBlogContent($, $root, currentPageSlug) {
       const titleText = img.attribs.title || '';
       img.attribs = {};
 
-      img.attribs.src = `https://influx-site-assets.s3.us-west-2.amazonaws.com/orangecountycosmeticsurgery/blog/${newFilename}`;
+      img.attribs.src = `https://{ cms domain }{ site domain }/blog/${newFilename}`;
       if (altText) img.attribs.alt = altText;
       if (titleText) img.attribs.title = titleText;
 
       const $img = $(img);
       const $parentAnchor = $img.parent('a');
       if ($parentAnchor.length) {
-        $parentAnchor.attr('href', `https://influx-site-assets.s3.us-west-2.amazonaws.com/orangecountycosmeticsurgery/blog/${newFilename}`);
+        $parentAnchor.attr('href', `https://{ cms domain }{ site domain }/blog/${newFilename}`);
       }
     } catch (error) {
       console.error(`Failed to download image ${originalSrc}:`, error.message);
